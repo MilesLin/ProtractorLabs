@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-fdescribe('the user submit a questionnaire', () => {
+describe('the user submit a questionnaire', () => {
   it('should type information', async () => {
     await browser.get('labs/questionnaire');
     await element(by.name('username')).sendKeys('John');
@@ -9,5 +9,4 @@ fdescribe('the user submit a questionnaire', () => {
     const formText = await element(by.tagName('form')).getText();
     expect(formText).toContain('送出成功');
   });
-
 });
