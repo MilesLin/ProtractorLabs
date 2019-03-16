@@ -11,6 +11,7 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
   },
+  SELENIUM_PROMISE_MANAGER: false,
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
@@ -19,7 +20,7 @@ exports.config = {
     defaultTimeoutInterval: 10000,
     print: function() {}
   },
-  onPrepare() {
+  async onPrepare() {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.e2e.json')
     });
