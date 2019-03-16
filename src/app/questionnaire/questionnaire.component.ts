@@ -17,15 +17,18 @@ export class QuestionnaireComponent implements OnInit {
 
   ngOnInit() {
 
-    setInterval(
-      () => {
-        if (this.timer === 0) {
-          this.timer = 59;
-        } else {
-          this.timer--;
-        }
-      },
-      1000);
+    // 正確的寫法
+    this.ngZone.runOutsideAngular(() => {
+      setInterval(() => {
+        this.ngZone.run(() => {
+          if (this.timer === 0) {
+            this.timer = 59;
+          } else {
+            this.timer--;
+          }
+        });
+      }, 1000);
+    });
   }
 
   submit() {
