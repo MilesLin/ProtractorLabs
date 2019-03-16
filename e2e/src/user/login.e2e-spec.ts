@@ -20,6 +20,7 @@ describe('the user try to login', () => {
     await element(by.id('password')).sendKeys('abc');
     await element(by.buttonText('登入')).click();
     const isAlertPresent = await element(by.className('alert-danger')).isPresent();
+    await browser.sleep(3000); // 等待三秒鐘，再往下執行
     expect(isAlertPresent).toBe(true, '錯誤密碼案例驗證失敗');
   });
 });
