@@ -28,10 +28,7 @@ fdescribe('search an event', () => {
 
   it('should click the second search result', async () => {
 
-    await element(by.className('list-group')).all(by.tagName('a'))
-    .filter(elem => {
-      return elem.getText().then(x => x.includes('實戰開發'));
-    }).first().click();
+    await element(by.className('list-group')).element(by.cssContainingText('a', '實戰開發')).click();
 
     // 驗證第一個 h2 是 「ANGULAR 7 開發實戰：新手入門篇」
     const text = await element(by.tagName('h2')).getText();
