@@ -1,7 +1,7 @@
 import { browser, by, element, ElementFinder } from 'protractor';
 import * as path from 'path';
 
-fdescribe('add a new event', () => {
+describe('add a new event', () => {
 
   let name: ElementFinder;
   let calendarBtn: ElementFinder;
@@ -54,7 +54,6 @@ fdescribe('add a new event', () => {
             const val = await td.getText();
             return val === '1997'
           }).first().click();
-          await browser.sleep(3000);
 
     await element(by.className('mat-calendar-body'))
           .all(by.tagName('tr')).get(3)
